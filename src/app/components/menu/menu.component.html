@@ -1,0 +1,30 @@
+<mat-sidenav-container class="example-container" (backdropClick)="close()">
+    <mat-sidenav #snav [mode]="'over'" (keydown.escape)="close()" disableClose>
+        <div>
+            <a mat-button></a>
+        </div>
+        <div *ngFor="let item of this.menuItems">
+            <a mat-button (click)="close()" routerLink="{{item.url}}">{{item.title}}</a>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <div fxHide.xs *ngFor="let item of this.menuItems">
+                    <a mat-button routerLink="{{item.url}}">{{item.title}}</a>
+                </div>
+                <button mat-icon-button fxHide fxShow.xs (click)="snav.open()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <div class="mdc-layout-grid main-content">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell--span-12">
+                    <router-outlet></router-outlet>
+                    <app-loader></app-loader>
+                </div>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

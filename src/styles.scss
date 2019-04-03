@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+// @import '~@angular/material/theming';
+// @include mat-core();
+
+.mat-toolbar {
+    background: #fafafa;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.loader-back {
+  background: rgba(0,0,0,.32);
+  z-index: 99999;
+  transition: all .1s;
+}
+
+.loader-back + div {
+  z-index: 999999;
+}

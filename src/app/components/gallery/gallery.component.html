@@ -1,0 +1,12 @@
+<mat-toolbar>
+    <span>{{title}}</span>
+</mat-toolbar>
+<ul class="mdc-image-list mdc-image-list--with-text-protection mdc-image-list--masonry my-image-list">
+    <li class="mdc-image-list__item" *ngFor="let img of this.imgs" (click)=this.openDialog(img)>
+        <img class="mdc-image-list__image" src="{{img.webformatURL}}" (load)="imgsReady()">
+        <div class="mdc-image-list__supporting" *ngIf="img.page < currentPage">
+            <span class="mdc-image-list__label">{{img.tags}}</span>
+        </div>
+    </li>
+</ul>
+<button mat-button *ngIf="!wasScrolled" (click)="getImages()">Еще фотографии...</button>
